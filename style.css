@@ -1,0 +1,18 @@
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 272px;
+    width: 272px;
+    margin: 0;
+    padding: 0;
+}
+
+div.square {
+    border: inset 1px #000000;
+    height: 15px;
+    width: 15px;
+    &:hover {
+        background-color: #000000;
+    }
+}
