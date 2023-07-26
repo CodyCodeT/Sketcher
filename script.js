@@ -1,8 +1,27 @@
 let gridSize = 16;
 const size = document.querySelector('#size');
 const clear = document.querySelector('#clear');
+const color = document.querySelector('#color');
+const rainbow = document.querySelector('#rainbow');
 grid();
 
+rainbow.addEventListener('click', function() {
+    const squares = document.querySelectorAll('.square');
+    squares.forEach((square) => {
+        square.addEventListener('mouseover', function(e) {
+            e.target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+        });
+    });
+});
+
+color.addEventListener('click', function() {
+    const squares = document.querySelectorAll('.square');
+    squares.forEach((square) => {
+        square.addEventListener('mouseover', function(e) {
+            e.target.style.backgroundColor = 'black';
+        });
+    });
+});
 
 clear.addEventListener('click', clearGrid);
 size.addEventListener('click', function() {
@@ -33,9 +52,9 @@ function grid() {
 for (let i = 0; i < gridSize * gridSize; i++) {
     const container = document.querySelector('#container');
     const div = document.createElement('div');
-    div.style.cssText = `width: ${960 / gridSize}px; height: ${960 / gridSize}`;
+    div.style.cssText = `width: ${500 / gridSize}px; height: ${500 / gridSize}`;
     div.addEventListener('mouseover', function(e) {
-        e.target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+        e.target.style.backgroundColor = `black`;
     });
     div.classList.add('square');
     container.appendChild(div);
